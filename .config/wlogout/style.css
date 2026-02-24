@@ -32,32 +32,28 @@ button:hover {
 
 #lock {
   background-image: image(url("./icons/lock.svg"));
-  border-radius: 10px 0px 0px 10px;
-  margin: 200px 0px 200px 0px;
+  border-radius: 10px 0px 0px 0px;
 }
 
 #logout {
   background-image: image(url("./icons/logout.svg"));
-  margin: 200px 0px 200px 0px;
 }
 
 #suspend {
   background-image: image(url("./icons/suspend.svg"));
-  margin: 200px 0px 200px 0px;
+  border-radius: 0px 10px 0px 0px;
 }
 
 #shutdown {
   background-image: image(url("./icons/shutdown.svg"));
-  margin: 200px 0px 200px 0px;
 }
 
 #hibernate {
   background-image: image(url("./icons/hibernate.svg"));
-  border-radius: 0px 10px 10px 0px;
-  margin: 200px 0px 200px 0px;
+  border-radius: 0px 0px 10px 0px;
 }
 
 #reboot {
   background-image: image(url("./icons/reboot.svg"));
-  margin: 200px 0px 200px 0px;
+  border-radius: 0px 0px 0px 10px;
 }
