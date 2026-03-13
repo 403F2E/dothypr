@@ -35,16 +35,16 @@ require "autocmds"
 --- enabling the lsp configs
 local lspconfig = vim.lsp.enable
 
-lspconfig("jdtls")
-lspconfig("rust_analyzer")
-lspconfig("pyright")
-lspconfig("clangd")
+lspconfig "jdtls"
+lspconfig "rust_analyzer"
+lspconfig "pyright"
+lspconfig "clangd"
 ---
 
-require("flutter-tools").setup({})
+require("flutter-tools").setup {}
 
-local tele = require("telescope")
-tele.load_extension("flutter")
+local tele = require "telescope"
+tele.load_extension "flutter"
 
 vim.schedule(function()
   require "mappings"

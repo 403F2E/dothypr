@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -16,7 +16,7 @@ return {
   -- test new blink
   { import = "nvchad.blink.lazyspec" },
 
-  -- Treesitter plagin
+  -- Treesitter plugin
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -40,75 +40,75 @@ return {
       },
     },
   },
-  
-  	-- Markdown preview plugin
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		build = "cd app && yarn install",
-		init = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
-	},
 
-  -- Git plugin for nvim 
-	{
-		"tpope/vim-fugitive",
-		cmd = { "Git", "Gedit", "Gsplit", "Gdiffsplit" },
-		lazy = false,
-	},
+  -- Markdown preview plugin
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
 
-  	-- php configuration
-	{
-		"jwalton512/vim-blade",
-		ft = { "php", "blade.php" },
-		config = function()
-			vim.g.blade_custom_delimiters = { php = { "{{", "}}" } } -- Laravel-style syntax
-		end,
-	},
+  -- Git plugin for nvim
+  {
+    "tpope/vim-fugitive",
+    cmd = { "Git", "Gedit", "Gsplit", "Gdiffsplit" },
+    lazy = false,
+  },
+
+  -- php configuration
+  {
+    "jwalton512/vim-blade",
+    ft = { "php", "blade.php" },
+    config = function()
+      vim.g.blade_custom_delimiters = { php = { "{{", "}}" } } -- Laravel-style syntax
+    end,
+  },
 
   -- python lsp configuration
-	{
-		"microsoft/pyright",
-		ft = { "python" },
-	},
+  {
+    "microsoft/pyright",
+    ft = { "python" },
+  },
 
-  -- Rust plugin 
+  -- Rust plugin
   {
-		"rust-lang/rust-analyzer",
-		lazy = false,
-	},
+    "rust-lang/rust-analyzer",
+    lazy = false,
+  },
   {
-		"rust-lang/rust.vim",
-		ft = "rust",
-		init = function()
-			vim.g.rustfmt_autosave = 1
-		end,
-	},
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+  },
   --- Crates plugin for the Cargo.toml file
   {
-		"saecki/crates.nvim",
-		ft = { "toml" },
-		config = function()
-			require("crates").setup()
-		end,
-	},
+    "saecki/crates.nvim",
+    ft = { "toml" },
+    config = function()
+      require("crates").setup()
+    end,
+  },
 
-	-- java lsp plugin configuration
-	{
-		"mfussenegger/nvim-jdtls",
-		ft = { "java" },
-	},
+  -- java lsp plugin configuration
+  {
+    "mfussenegger/nvim-jdtls",
+    ft = { "java" },
+  },
 
-	-- flutter lsp configuration
-	{
-		"nvim-flutter/flutter-tools.nvim",
-		lazy = false,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"stevearc/dressing.nvim", -- optional for vim.ui.select
-		},
-		config = true,
-	},
+  -- flutter lsp configuration
+  {
+    "nvim-flutter/flutter-tools.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "stevearc/dressing.nvim", -- optional for vim.ui.select
+    },
+    config = true,
+  },
 }

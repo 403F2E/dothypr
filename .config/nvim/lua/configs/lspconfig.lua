@@ -77,6 +77,7 @@ lspconfig("pyright", {
   filetype = { "python" },
 })
 
+-- C/C++ Lsp configuration
 lspconfig("clangd", {
   on_attach = on_attach,
   on_init = nvlsp.on_init,
@@ -92,75 +93,42 @@ lspconfig("clangd", {
   },
 })
 
-lspconfig("ts_ls", {
+-- TypeScript Lsp configuration
+lspconfig("tsserver", {
   on_attach = on_attach,
   capabilities = capabilities,
-  root_dir = require("lspconfig.util").root_pattern("next.config.js", "next.config.ts", "package.json", ".git"),
+  -- root_dir = require("lspconfig.util").root_pattern("next.config.js", "next.config.ts", "package.json", ".git"),
   filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
+  cmd = { "typescript-language-server", "--stdio" },
   init_options = {
     preferences = {
       importModuleSpecifierPreference = "relative",
       jsxAttributeCompletionStyle = "auto",
     },
-    plugins = {
-      {
-        name = "next",
-        location = vim.fn.stdpath "data" .. "/mason/packages/nextls",
-      },
-    },
   },
 })
 
+-- ESLint linter configuration
 lspconfig("eslint", {
   on_attach = on_attach,
   capabilities = capabilities,
+  root_dir = require("lspconfig.util").root_pattern("next.config.js", "next.config.ts", "package.json", ".git"),
   filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
   settings = {
     packageManager = "npm",
-    codeAction = {
-      disableRuleComment = {
-        enable = true,
-        location = "separateLine",
-      },
-      showDocumentation = {
-        enable = true,
-      },
-    },
-    format = true,
-    quiet = false,
-    onIgnoredFiles = "off",
-    rulesCustomizations = {},
     run = "onType",
-    useESLintClass = false,
     validate = "on",
-    workingDirectory = {
-      mode = "auto",
-    },
   },
 })
 
 lspconfig("tailwindcss", {
   on_attach = on_attach,
   capabilities = capabilities,
+  root_dir = require("lspconfig.util").root_pattern("next.config.js", "next.config.ts", "package.json", ".git"),
   filetypes = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact" },
-  init_options = {
-    userLanguages = {
-      typescript = "javascript",
-      typescriptreact = "javascript",
-    },
-  },
   settings = {
     tailwindCSS = {
-      classAttributes = { "class", "className", "class:list", "classList" },
-      lint = {
-        cssConflict = "warning",
-        invalidApply = "error",
-        invalidConfigPath = "error",
-        invalidScreen = "error",
-        invalidTailwindDirective = "error",
-        invalidVariant = "error",
-        recommendedVariantOrder = "warning",
-      },
+      classAttributes = { "class", "className", "classList" },
       validate = true,
     },
   },

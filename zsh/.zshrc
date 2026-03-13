@@ -6,6 +6,9 @@ export SHELL="/bin/zsh"
 # export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.local/bin/:$HOME/.cargo/bin/:$PATH"
 
+# export solana
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+
 # once installing the android sdk
 ## export path="$home/desktop/stuff/projects/flutter/flutter/bin:$path"
 export ANDROID_HOME="$HOME/Android/Sdk"
