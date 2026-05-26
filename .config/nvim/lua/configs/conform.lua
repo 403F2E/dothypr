@@ -24,6 +24,8 @@ local options = {
     timeout_ms = 1000,
     lsp_fallback = true,
   },
+
+  notify_on_error = true,
 }
 
 return options

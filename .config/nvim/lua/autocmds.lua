@@ -15,3 +15,15 @@ vim.api.nvim_create_autocmd("FileType", {
     end, 100)
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "python",
+  callback = function()
+    -- Disable the old Vim Python indentation script
+    vim.bo.indentexpr = nil
+    vim.bo.indentkeys = nil
+    -- Use modern indentation instead
+    vim.bo.autoindent = true
+    vim.bo.smartindent = true
+  end,
+})
