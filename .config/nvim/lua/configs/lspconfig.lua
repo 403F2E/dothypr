@@ -209,3 +209,20 @@ lspconfig("intelephense", {
     },
   },
 })
+
+lspconfig("gopls", {
+  on_attach = on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = capabilities,
+  filetypes = { "go" },
+  settings = {
+    gopls = {
+      -- These flags are optional but highly recommended for a better Go experience
+      analyses = {
+        unusedparams = true, -- Warns about unused function parameters
+      },
+      staticcheck = true, -- Enables a more powerful linter than the default
+      gofumpt = true, -- Formats your code with gofumpt (stricter than gofmt)
+    },
+  },
+})
