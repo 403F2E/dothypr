@@ -5,16 +5,16 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 
 map(
-	"n",
-	"<leader>ff",
-	"<cmd>Telescope find_files follow=true  no_ignore=true hidden=true<cr>",
-	{ desc = "telescope find files" }
+  "n",
+  "<leader>ff",
+  "<cmd>Telescope find_files follow=true  no_ignore=true hidden=true<cr>",
+  { desc = "telescope find files" }
 )
 map(
-	"n",
-	"<leader>fa",
-	"<cmd>Telescope find_files follow=true cwd=~/ no_ignore=true hidden=true<CR>",
-	{ desc = "telescope find all files" }
+  "n",
+  "<leader>fa",
+  "<cmd>Telescope find_files follow=true cwd=~/ no_ignore=true hidden=true<CR>",
+  { desc = "telescope find all files" }
 )
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
