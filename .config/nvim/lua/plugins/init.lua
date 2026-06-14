@@ -13,6 +13,24 @@ return {
     end,
   },
 
+  -- DAP
+  {
+    "mfussenegger/nvim-dap",
+    lazy = false,
+  },
+  -- DAP UI
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    lazy = false,
+  },
+  -- Mason DAP integration
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    lazy = false,
+    dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
+  },
+
   -- test new blink
   { import = "nvchad.blink.lazyspec" },
 

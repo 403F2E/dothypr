@@ -41,6 +41,28 @@ lspconfig "pyright"
 lspconfig "clangd"
 ---
 
+-- DAP configurations for rust
+local dap = require "dap"
+dap.adapters.codelldb = {
+  type = "executable",
+  command = "codelldb",
+  name = "codelldb",
+}
+dap.configurations.rust = {
+  {
+    name = "Launch",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/roncerto")
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+    args = {},
+  },
+}
+---
+
 require("flutter-tools").setup {}
 
 local tele = require "telescope"
