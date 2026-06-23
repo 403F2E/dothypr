@@ -1,158 +1,43 @@
+@import "theme.css";
+
 * {
-  font-family: "JetBrainsMono Nerd Font";
-  font-size: 13px;
-  min-height: 0;
+  all: initial; /* Reset GTK theme */
+  color: @main-fg;
 }
 
-window#waybar {
-  background: transparent;
-  color: #c0caf5;
+@import "styles/fonts.css";
+@import "styles/modules-center.css";
+@import "styles/modules-left.css";
+@import "styles/modules-right.css";
+@import "styles/states.css";
+
+.module {
+  margin-bottom: -1px;
 }
 
-/* Floating capsules */
-
-.modules-left,
-.modules-center,
-.modules-right {
-  background: rgba(26, 27, 38, 0.88);
-
-  border-radius: 14px;
-
-  border: 1px solid rgba(122, 162, 247, 0.2);
-
-  margin-top: 6px;
-  margin-bottom: 6px;
-
-  padding-left: 12px;
-  padding-right: 12px;
-
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.35);
+#waybar {
+  background-color: @outline;
+}
+#waybar > box {
+  margin: 4px;
+  background-color: @main-bg;
 }
 
-/* Generic modules */
-
-#cpu,
-#memory,
-#battery,
-#network,
-#clock,
-#pulseaudio,
-#mpris,
-#custom-fedora,
-#window,
-#custom-weather {
-  padding-left: 10px;
-  padding-right: 10px;
+button {
+  border-radius: 16px;
+  min-width: 16px;
+  padding: 0 10px;
 }
-
-/* Fedora logo */
-
-#custom-fedora {
-  color: #7aa2f7;
-  font-size: 18px;
+button:hover {
+  background-color: @hover-bg;
+  color: @hover-fg;
 }
-
-/* Workspace section */
-
-#workspaces {
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#workspaces button {
-  background: transparent;
-
-  border-radius: 10px;
-
-  margin: 3px;
-  padding: 0 12px;
-
-  color: #c0caf5;
-
-  transition: all 0.25s ease;
-}
-
-#workspaces button:hover {
-  background: rgba(122, 162, 247, 0.15);
-}
-
-#workspaces button.active {
-  background: rgba(122, 162, 247, 0.2);
-
-  border: 1px solid #7aa2f7;
-
-  color: #7aa2f7;
-}
-
-/* Center title */
-
-#window {
-  color: #c0caf5;
-  font-style: italic;
-}
-
-/* Music */
-
-#mpris {
-  color: #bb9af7;
-}
-
-/* Clock */
-
-#clock {
-  color: #e0af68;
-  font-weight: bold;
-}
-
-/* CPU */
-
-#cpu {
-  color: #7dcfff;
-}
-
-/* RAM */
-
-#memory {
-  color: #9ece6a;
-}
-
-/* Network */
-
-#network {
-  color: #73daca;
-}
-
-/* Weather */
-
-#custom-weather {
-  color: #f7768e;
-}
-
-/* Battery */
-
-#battery.warning {
-  color: #e0af68;
-}
-
-#battery.critical {
-  color: #f7768e;
-}
-
-/* Tray */
-
-#tray {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-/* Tooltip */
 
 tooltip {
-  background: rgba(26, 27, 38, 0.95);
-
-  border-radius: 12px;
-
-  border: 1px solid #7aa2f7;
-
-  color: #c0caf5;
+  border: 2px solid @main-br;
+  border-radius: 10px;
+  background-color: @main-bg;
+}
+tooltip > box {
+  padding: 0 6px;
 }

@@ -2,7 +2,8 @@ local mainMod = "SUPER"
 
 local terminal = "kitty"
 local fileManager = "dolphin"
-local launcher = "~/.config/rofi/launchers/launcher.sh"
+local launcher = "~/.config/rofi/launchers/type-6/launcher.sh"
+local clippy = "~/.config/rofi/launchers/type-6/clippy.sh"
 
 -- Hyprland shutdown
 hl.bind(
@@ -36,6 +37,11 @@ hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
+
+hl.bind("ALT + Tab", function()
+	hl.dispatch(hl.dsp.window.cycle_next({ prev = true })) -- Change focus to another window
+	hl.dispatch(hl.dsp.window.fullscreen({ mode = "maximized" })) -- Bring it to the top
+end)
 
 -- Move windows in a certain direction
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
@@ -74,19 +80,15 @@ hl.bind("print", hl.dsp.exec_cmd("grim ~/Pictures/screenshot-$(date +%s).png"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim ~/Pictures/screenshot-$(date +%s).png"))
 
 -- CLipboard
-hl.bind(mainMod .. "+ V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+hl.bind(mainMod .. "+ V", hl.dsp.exec_cmd(clippy))
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind(
 	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"),
+	hl.dsp.exec_cmd("pamixer -i 5 --allow-boost --set-limit 300"),
 	{ locked = true, repeating = true }
 )
-hl.bind(
-	"XF86AudioLowerVolume",
-	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-	{ locked = true, repeating = true }
-)
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pamixer -d 5"), { locked = true, repeating = true })
 hl.bind(
 	"XF86AudioMute",
 	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),

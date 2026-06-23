@@ -1,5 +1,5 @@
-/* ----------- 💫 https://github.com/JaKooLit 💫 -------- */
-/* wallust-wlogout */
+/* ----------- Sherlock Intelligence Workstation -------- */
+/* wlogout */
 
 * {
   background-image: none;
@@ -7,17 +7,23 @@
 }
 
 window {
-  background-color: rgba(30, 30, 46, 0.9);
+  background-color: rgba(23, 27, 36, 0.92);
 }
 
 button {
-  border-radius: 0;
-  border-color: #b4befe;
-  text-decoration-color: #cdd6f4;
-  color: #cdd6f4;
-  background-color: #181825;
+  margin: 10px;
+  border-radius: 15px 15px 15px 15px;
+
+  border-color: #b08d57;
+
+  text-decoration-color: #d6d2c4;
+  color: #d6d2c4;
+
+  background-color: #171b24;
+
   border-style: solid;
   border-width: 1px;
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: 25%;
@@ -26,13 +32,17 @@ button {
 button:focus,
 button:active,
 button:hover {
-  background-color: rgb(48, 50, 66);
+  background-color: #2b3243;
+
+  border-color: #c9b68d;
+
+  color: #d6d2c4;
+
   outline-style: none;
 }
 
 #lock {
   background-image: image(url("./icons/lock.svg"));
-  border-radius: 10px 0px 0px 0px;
 }
 
 #logout {
@@ -41,7 +51,6 @@ button:hover {
 
 #suspend {
   background-image: image(url("./icons/suspend.svg"));
-  border-radius: 0px 10px 0px 0px;
 }
 
 #shutdown {
@@ -50,10 +59,8 @@ button:hover {
 
 #hibernate {
   background-image: image(url("./icons/hibernate.svg"));
-  border-radius: 0px 0px 10px 0px;
 }
 
 #reboot {
   background-image: image(url("./icons/reboot.svg"));
-  border-radius: 0px 0px 0px 10px;
 }

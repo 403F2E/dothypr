@@ -2,6 +2,9 @@ hl.on("hyprland.start", function()
 	-- wallpaper
 	hl.exec_cmd("hyprpaper")
 
+	-- idle
+	hl.exec_cmd("hypridle")
+
 	-- notifications
 	hl.exec_cmd("dunst")
 

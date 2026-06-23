@@ -1,0 +1,80 @@
+/* ==========================================================
+   SHERLOCK INTELLIGENCE WORKSTATION
+   Tokyo Night × Rainy London × Brass Archives
+   ========================================================== */
+
+@define-color rosewater      #d6c7a5;
+@define-color flamingo       #c9b68d;
+@define-color pink           #b89bc7;
+@define-color mauve          #9a8db5;
+
+@define-color red            #a55d68;
+@define-color maroon         #8d5b5b;
+@define-color peach          #c49a5a;
+@define-color yellow         #d4b06a;
+
+@define-color green          #7d9571;
+@define-color teal           #6f8f8f;
+@define-color sky            #7f9ca8;
+@define-color sapphire       #688596;
+
+@define-color blue           #7c92b3;
+@define-color lavender       #9aa2c0;
+
+@define-color text           #d6d2c4;
+@define-color subtext1       #b8b2a4;
+@define-color subtext0       #9f998d;
+
+@define-color overlay2       #8d877c;
+@define-color overlay1       #787267;
+@define-color overlay0       #656055;
+
+@define-color surface2       #475166;
+@define-color surface1       #384154;
+@define-color surface0       #2b3243;
+
+@define-color base           #1d2230;
+@define-color mantle         #171b24;
+@define-color crust          #11141b;
+
+/*
+    br - border
+    bg - background
+    fg - foreground
+*/
+
+/* Main colors */
+
+@define-color accent         #b08d57;
+
+@define-color main-br        @surface1;
+@define-color main-bg        @crust;
+@define-color main-fg        @text;
+
+@define-color hover-bg       @base;
+@define-color hover-fg       alpha(@main-fg, 0.75);
+
+@define-color outline        @surface0;
+
+/* Module colors */
+
+@define-color workspaces     @mantle;
+@define-color temperature    @mantle;
+
+@define-color memory         @base;
+@define-color cpu            @surface0;
+
+@define-color time           @surface0;
+@define-color date           @base;
+
+@define-color tray           @mantle;
+
+@define-color volume         @mantle;
+@define-color backlight      @base;
+@define-color battery        @surface0;
+
+/* State colors */
+
+@define-color warning        #d4b06a;
+@define-color critical       #a55d68;
+@define-color charging       #7d9571;

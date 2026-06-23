@@ -1,220 +1,88 @@
 {
-  "reload_style_on_change": true,
+	"include": [
+		"~/.config/waybar/modules/*.jsonc",
+		"~/.config/waybar/modules/custom/*.jsonc",
+		"~/.config/waybar/modules/hyprland/*.jsonc"
 
-  "position": "top",
-  "layer": "top",
-  "mod": "dock",
+		// Modules that are not included by default:
+		// "~/.config/waybar/modules/extras/*.jsonc"
+	],
 
-  "margin-top": 6,
-  "margin-left": 10,
-  "margin-right": 10,
-  "margin-bottom": 0,
+	/*------------
+	    Layout
+	------------*/
 
-  "height": 32,
+	"modules-left": [
+		"custom/user",
+		"custom/left_div#1",
+		"hyprland/workspaces",
+		"custom/right_div#1",
+		"hyprland/window"
+	],
+	"modules-center": [
+		"hyprland/language",
+		"custom/left_div#2",
+		"temperature",
+		"custom/left_div#3",
+		"memory",
+		"custom/left_div#4",
+		"cpu",
+		"custom/left_inv#1",
+		"custom/left_div#5",
+		"custom/distro",
+		"custom/right_div#2",
+		"custom/right_inv#1",
+		"idle_inhibitor",
+		"clock#time",
+		"custom/right_div#3",
+		"clock#date",
+		"custom/right_div#4",
+		"network",
+		"bluetooth",
+		"custom/update",
+		"custom/right_div#5"
+	],
+	"modules-right": [
+		"mpris",
+		"custom/left_div#6",
+		"group/pulseaudio",
+		"custom/left_div#7",
+		"backlight",
+		"custom/left_div#8",
+		"battery",
+		"custom/left_inv#2",
+		"custom/power"
+	],
 
-  "group/left1": {
-    "orientation": "inherit",
-    "modules": [
-      "custom/fedora",
-      "idle_inhibitor"
-    ]
-  },
+	/*-------------
+	    Options
+	-------------*/
 
-  "group/left2": {
-    "orientation": "inherit",
-    "modules": [
-      "hyprland/workspaces"
-    ]
-  },
-
-  "group/left3": {
-    "orientation": "inherit",
-    "modules": [
-      "mpris"
-    ]
-  },
-
-  "modules-left": [
-    "group/left1",
-    "group/left2",
-    "group/left3"
-  ],
-
-  "modules-center": [
-    "hyprland/window"
-  ],
-
-  "modules-right": [
-    "group/tray-expander",
-    "pulseaudio",
-    "network",
-    "memory",
-    "cpu",
-    "battery",
-    "custom/weather",
-    "clock"
-  ],
-
-  "custom/fedora": {
-    "format": "󰣛",
-    "tooltip": true,
-    "tooltip-format": "Fedora Detective Menu",
-    "on-click": "rofi -show drun"
-  },
-
-  "hyprland/workspaces": {
-    "on-click": "activate",
-    "format": "{icon}",
-
-    "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      "6": [],
-      "7": [],
-      "8": [],
-      "9": [],
-      "10": []
-    },
-
-    "format-icons": {
-      "1": "I",
-      "2": "II",
-      "3": "III",
-      "4": "IV",
-      "5": "V",
-      "6": "VI",
-      "7": "VII",
-      "8": "VIII",
-      "9": "IX",
-      "10": "X"
-    }
-  },
-
-  "hyprland/window": {
-    "format": "{title}",
-    "max-length": 80
-  },
-
-  "mpris": {
-    "format": "♪ {dynamic}",
-    "format-paused": "󰏤 {dynamic}",
-    "max-length": 40,
-    "interval": 1
-  },
-
-  "cpu": {
-    "interval": 2,
-    "format": "{usage}% ⚙"
-  },
-
-  "memory": {
-    "interval": 2,
-    "format": "{percentage}% 📚"
-  },
-
-  "clock": {
-    "format": "🕰 {:%H:%M}",
-    "format-alt": "📜 {:%d/%m/%Y}",
-
-    "tooltip-format": "<big>{:%A}</big>\n<tt>{calendar}</tt>",
-
-    "calendar": {
-      "mode": "month",
-
-      "format": {
-        "today": "<span color='#7aa2f7'><b>{}</b></span>"
-      }
-    }
-  },
-
-  "network": {
-    "format-wifi": "🕸",
-    "format-ethernet": "🕸",
-    "format-disconnected": "✕",
-
-    "tooltip-format-wifi":
-      "{essid}\n⇣ {bandwidthDownBytes}\n⇡ {bandwidthUpBytes}",
-
-    "tooltip-format-ethernet":
-      "⇣ {bandwidthDownBytes}\n⇡ {bandwidthUpBytes}"
-  },
-
-  "battery": {
-    "format": "{capacity}% {icon}",
-
-    "format-icons": [
-      "󰁺",
-      "󰁻",
-      "󰁼",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂",
-      "󰁹"
-    ],
-
-    "states": {
-      "warning": 20,
-      "critical": 10
-    }
-  },
-
-  "pulseaudio": {
-    "format": " {volume}%",
-    "format-muted": "󰝟",
-
-    "format-icons": {
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    }
-  },
-
-  "custom/weather": {
-    "format": "{}°",
-    "tooltip": true,
-    "interval": 1800,
-    "exec": "wttrbar --nerd --location Marrakech",
-    "return-type": "json"
-  },
-
-  "idle_inhibitor": {
-    "format": "{icon}",
-
-    "format-icons": {
-      "activated": "󰛊",
-      "deactivated": "󰾫"
-    }
-  },
-
-  "group/tray-expander": {
-    "orientation": "inherit",
-
-    "drawer": {
-      "transition-duration": 600,
-      "children-class": "tray-group-item"
-    },
-
-    "modules": [
-      "custom/expand-icon",
-      "tray"
-    ]
-  },
-
-  "custom/expand-icon": {
-    "format": "",
-    "tooltip": false
-  },
-
-  "tray": {
-    "icon-size": 14,
-    "spacing": 10
-  }
+	// "expand-center":
+	// "expand-left":
+	// "expand-right":
+	"layer": "top",
+	// "output":
+	// "position":
+	"height": 0,
+	"width": 0,
+	"margin": 0,
+	// "margin-top":
+	// "margin-left":
+	// "margin-bottom":
+	// "margin-right":
+	// "no-center":
+	"spacing": 0,
+	// "name":
+	"mode": "dock",
+	// "start_hidden":
+	// "modifier-reset":
+	// "exclusive":
+	// "fixed-center":
+	// "passthrough":
+	// "ipc":
+	// "id":
+	"reload_style_on_change": true
+	// "on-sigusr1":
+	// "on-sigusr2":
 }
