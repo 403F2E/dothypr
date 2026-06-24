@@ -2,6 +2,7 @@ local mainMod = "SUPER"
 
 local terminal = "kitty"
 local fileManager = "dolphin"
+local browser = "brave-browser"
 local launcher = "~/.config/rofi/launchers/type-6/launcher.sh"
 local clippy = "~/.config/rofi/launchers/type-6/clippy.sh"
 
@@ -11,12 +12,20 @@ hl.bind(
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 
--- Keybinds to launch apps
+-- -- Keybinds to launch apps
+-- open kitty
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
-
+-- open dolphin
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-
+-- open rofi -drun
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(launcher))
+-- open brave (zen in the future)
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+
+-- keybinds to switch betwen layouts
+-- hl.bind("SUPER+SPACE", function()
+-- 	hl.dsp.exec_cmd("hyprctl switchxkblayout all next")
+-- end)
 
 -- Keybinds to manage windows
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
@@ -69,15 +78,18 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
 
 -- LOCKSCREEN
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("hyprlock"))
 
 -- LOGOUT
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("wlogout"))
 
 -- Misc
 -- Screenshots
-hl.bind("print", hl.dsp.exec_cmd("grim ~/Pictures/screenshot-$(date +%s).png"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim ~/Pictures/screenshot-$(date +%s).png"))
+hl.bind("print", hl.dsp.exec_cmd("grim ~/Pictures/Screenshots/screenshot_$(date +%F_%T).png"))
+hl.bind(
+	mainMod .. " + SHIFT + S",
+	hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f - -o ~/Pictures/Screenshots/screenshot_$(date +%F_%T).png')
+)
 
 -- CLipboard
 hl.bind(mainMod .. "+ V", hl.dsp.exec_cmd(clippy))
