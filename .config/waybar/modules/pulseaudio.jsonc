@@ -42,8 +42,8 @@
 		// "on-click-middle":
 		// "on-click-right":
 		// "on-update":
-		"on-scroll-up": "~/.config/waybar/scripts/volume.sh output raise",
-		"on-scroll-down": "~/.config/waybar/scripts/volume.sh output lower",
+		"on-scroll-up": "~/.config/waybar/scripts/volume.sh output raise 5",
+		"on-scroll-down": "~/.config/waybar/scripts/volume.sh output lower 5",
 		// "smooth-scrolling-threshold":
 		// "tooltip":
 		"tooltip-format": "<b>Output Device</b>: {desc}"

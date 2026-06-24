@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-DEF_VALUE=1
+DEF_VALUE=5
 MIN=0
-MAX=100
+MAX=300
 
 usage() {
 	local script=${0##*/}
