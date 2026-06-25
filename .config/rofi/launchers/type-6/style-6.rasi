@@ -21,10 +21,10 @@ modi:                       "drun,run,filebrowser,window";
 * {
 
                              /* Rainy London / Detective Archive */
-font: "FantasqueSansM Nerd Font 15";
+font:                          "FantasqueSansM Nerd Font 15";
 
 background:                  #171b24;
-                             background-alt:              #1d2230;
+background-alt:              #1d2230;
 
 foreground:                  #d6d2c4;
 

@@ -18,17 +18,26 @@ hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("wlogout"))
 -- //-- Apps
 local terminal = "kitty"
 local fileManager = "dolphin"
+local term_filemanager = terminal .. " -e ranger"
+local fuzzing = terminal .. " -e ~/.config/hypr/scripts/fuzzing.sh"
 local browser = "brave-browser"
+local search = "~/.config/hypr/scripts/browse.sh"
 local launcher = "~/.config/rofi/launchers/type-6/launcher.sh"
 
 -- open kitty
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 -- open dolphin
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+-- open fzf
+hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(fuzzing))
+-- open ranger
+hl.bind(mainMod .. " + SHIFT + Y", hl.dsp.exec_cmd(term_filemanager))
 -- open rofi -drun
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(launcher))
 -- open brave (zen in the future)
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+-- search through rofi
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(search))
 
 -- //-- Emojis
 local emoji = "~/.config/hypr/scripts/emoji.sh"
