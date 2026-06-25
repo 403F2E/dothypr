@@ -1,7 +1,7 @@
 /**
  * 
  * Rofi Theme File
- * Rofi Version: 1.7.3
+ * Sherlock Intelligence Workstation
  **/
 
 /*****----- Configuration -----*****/
@@ -19,12 +19,15 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "JetBrains Mono Nerd Font 10";
-    background:                  #101010;
-    background-alt:              #252525;
-    foreground:                  #FFFFFF;
-    selected:                    #505050;
-    active:                      #909090;
-    urgent:                      #707070;
+
+    background:                  #171b24;
+    background-alt:              #1d2230;
+
+    foreground:                  #d6d2c4;
+
+    selected:                    #b08d57;
+    active:                      #7d9571;
+    urgent:                      #a55d68;
 }
 
 /*****----- Main Window -----*****/
@@ -41,6 +44,8 @@ window {
     /* properties for all widgets */
     enabled:                     true;
     border-radius:               20px;
+    border: 2px;
+    border-color:                #384154;
     cursor:                      "default";
     background-color:            @background;
 }
@@ -59,7 +64,7 @@ listbox {
     padding:                     20px;
     background-color:            transparent;
     orientation:                 vertical;
-    children:                    [ "message", "listview", "mode-switcher" ];
+    children:                    [ "message", "listview" ];
 }
 
 /*****----- Inputbar -----*****/
@@ -68,11 +73,13 @@ inputbar {
     spacing:                     10px;
     padding:                     100px 40px;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/g.png", width);
+    background-image:            url("~/.dotfiles/wallpapers/old-london.jpg", height);
     text-color:                  @foreground;
+    border-radius:               20px;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
+
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
@@ -80,8 +87,9 @@ textbox-prompt-colon {
     padding:                     12px 15px;
     border-radius:               100%;
     background-color:            @background-alt;
-    text-color:                  inherit;
+    text-color:                  #b08d57;
 }
+
 entry {
     enabled:                     true;
     expand:                      true;
@@ -90,17 +98,19 @@ entry {
     background-color:            @background-alt;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search";
-    placeholder-color:           inherit;
+
+    placeholder:                 "Search Faces...";
+    placeholder-color:           #9f998d;
 }
 
 /*****----- Mode Switcher -----*****/
-mode-switcher{
-    enabled:                     true;
-    spacing:                     10px;
-    background-color:            transparent;
-    text-color:                  @foreground;
-}
+// mode-switcher{
+//     enabled:                     true;
+//     spacing:                     10px;
+//     background-color:            transparent;
+//     text-color:                  @foreground;
+// }
+
 button {
     padding:                     12px;
     border-radius:               100%;
@@ -108,6 +118,7 @@ button {
     text-color:                  inherit;
     cursor:                      pointer;
 }
+
 button selected {
     background-color:            @selected;
     text-color:                  @foreground;
@@ -125,7 +136,9 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
+
+    border: 0;
+
     spacing:                     10px;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -142,36 +155,49 @@ element {
     text-color:                  @foreground;
     cursor:                      pointer;
 }
+
+element alternate.normal {
+  background-color: inherit;
+  text-color: inherit;
+}
+
 element normal.normal {
     background-color:            inherit;
     text-color:                  inherit;
 }
+
 element normal.urgent {
     background-color:            @urgent;
     text-color:                  @foreground;
 }
+
 element normal.active {
     background-color:            @active;
     text-color:                  @foreground;
 }
+
 element selected.normal {
     background-color:            @selected;
-    text-color:                  @foreground;
+    text-color:                  #171b24;
 }
+
 element selected.urgent {
     background-color:            @urgent;
     text-color:                  @foreground;
 }
+
 element selected.active {
-    background-color:            @urgent;
+    background-color:            @active;
     text-color:                  @foreground;
 }
+
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
     size:                        32px;
     cursor:                      inherit;
 }
+
 element-text {
     background-color:            transparent;
     text-color:                  inherit;
@@ -184,6 +210,7 @@ element-text {
 message {
     background-color:            transparent;
 }
+
 textbox {
     padding:                     12px;
     border-radius:               100%;
@@ -192,6 +219,7 @@ textbox {
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }
+
 error-message {
     padding:                     15px;
     border-radius:               0px;

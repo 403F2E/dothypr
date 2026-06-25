@@ -6,6 +6,8 @@ local browser = "brave-browser"
 local launcher = "~/.config/rofi/launchers/type-6/launcher.sh"
 local clippy = "~/.config/rofi/launchers/type-6/clippy.sh"
 
+local emoji = "~/.config/hypr/scripts/emoji.sh"
+
 -- Hyprland shutdown
 hl.bind(
 	mainMod .. " + M",
@@ -21,6 +23,9 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(launcher))
 -- open brave (zen in the future)
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+
+-- Emojis
+hl.bind(mainMod .. " + code:60", hl.dsp.exec_cmd(emoji))
 
 -- keybinds to switch betwen layouts
 -- hl.bind("SUPER+SPACE", function()

@@ -1,6 +1,6 @@
 hl.config({
 	input = {
-		kb_layout = "gb,ara",
+		kb_layout = "gb",
 
 		follow_mouse = 1,
 

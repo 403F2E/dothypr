@@ -10,6 +10,11 @@
 dir="$HOME/.config/rofi/launchers/type-6"
 theme='style-6'
 
+# Check if rofi is already running
+if pidof rofi > /dev/null; then
+  pkill rofi
+fi
+
 ## Run
 rofi \
     -show drun \

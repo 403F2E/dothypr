@@ -10,5 +10,10 @@
 dir="$HOME/.config/rofi/launchers/type-6"
 theme='style-6'
 
+# Check if rofi is already running
+if pidof rofi > /dev/null; then
+  pkill rofi
+fi
+
 ## Run
 cliphist list | rofi -theme ${dir}/${theme}.rasi -dmenu | cliphist decode | wl-copy
