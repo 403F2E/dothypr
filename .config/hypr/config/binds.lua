@@ -1,20 +1,26 @@
 local mainMod = "SUPER"
 
-local terminal = "kitty"
-local fileManager = "dolphin"
-local browser = "brave-browser"
-local launcher = "~/.config/rofi/launchers/type-6/launcher.sh"
-local clippy = "~/.config/rofi/launchers/type-6/clippy.sh"
-
-local emoji = "~/.config/hypr/scripts/emoji.sh"
-
--- Hyprland shutdown
+-- //-- Hyprland shutdown
 hl.bind(
 	mainMod .. " + M",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 
--- -- Keybinds to launch apps
+-- //-- RELOAD
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
+
+-- //-- LOCKSCREEN
+hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("hyprlock"))
+
+-- //-- LOGOUT
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("wlogout"))
+
+-- //-- Apps
+local terminal = "kitty"
+local fileManager = "dolphin"
+local browser = "brave-browser"
+local launcher = "~/.config/rofi/launchers/type-6/launcher.sh"
+
 -- open kitty
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 -- open dolphin
@@ -24,7 +30,9 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(launcher))
 -- open brave (zen in the future)
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 
--- Emojis
+-- //-- Emojis
+local emoji = "~/.config/hypr/scripts/emoji.sh"
+
 hl.bind(mainMod .. " + code:60", hl.dsp.exec_cmd(emoji))
 
 -- keybinds to switch betwen layouts
@@ -32,6 +40,7 @@ hl.bind(mainMod .. " + code:60", hl.dsp.exec_cmd(emoji))
 -- 	hl.dsp.exec_cmd("hyprctl switchxkblayout all next")
 -- end)
 
+-- //-- Windows
 -- Keybinds to manage windows
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 
@@ -40,7 +49,6 @@ hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
--- Windows
 -- Keybinds to move between windows
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
@@ -63,6 +71,7 @@ hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 
+-- //-- Workspaces
 -- Keybinds to move between workspaces and move windows between them
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
@@ -70,7 +79,7 @@ for i = 1, 10 do
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
--- Mouse
+-- //-- Mouse
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
@@ -79,16 +88,7 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
--- RELOAD
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
-
--- LOCKSCREEN
-hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("hyprlock"))
-
--- LOGOUT
-hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("wlogout"))
-
--- Misc
+-- //-- Misc
 -- Screenshots
 hl.bind("print", hl.dsp.exec_cmd("grim ~/Pictures/Screenshots/screenshot_$(date +%F_%T).png"))
 hl.bind(
@@ -97,6 +97,8 @@ hl.bind(
 )
 
 -- CLipboard
+local clippy = "~/.config/rofi/launchers/type-6/clippy.sh"
+
 hl.bind(mainMod .. "+ V", hl.dsp.exec_cmd(clippy))
 
 -- Laptop multimedia keys for volume and LCD brightness
@@ -122,3 +124,7 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+
+-- //-- TOUCHPAD
+local touchpad = "~/.config/hypr/scripts/touchpadState.sh"
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(touchpad))
