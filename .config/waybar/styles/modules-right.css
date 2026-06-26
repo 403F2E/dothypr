@@ -2,8 +2,13 @@
     Media info
 ----------------*/
 
-#mpris {
-	padding: 0 12px;
+#custom-cava {
+  color: #b48d57;
+  padding: 0 8px;
+}
+
+#custom-music {
+  padding: 0 12px;
 }
 
 /*------------
@@ -11,11 +16,11 @@
 ------------*/
 
 #custom-left_div.6 {
-	color: @volume;
+  color: @volume;
 }
 #pulseaudio,
 #wireplumber {
-	background-color: @volume;
+  background-color: @volume;
 }
 
 /*----------------
@@ -23,11 +28,11 @@
 ----------------*/
 
 #custom-left_div.7 {
-	background-color: @volume;
-	color: @backlight;
+  background-color: @volume;
+  color: @backlight;
 }
 #backlight {
-	background-color: @backlight;
+  background-color: @backlight;
 }
 
 /*-------------
@@ -35,14 +40,14 @@
 -------------*/
 
 #custom-left_div.8 {
-	background-color: @backlight;
-	color: @battery;
+  background-color: @backlight;
+  color: @battery;
 }
 #battery {
-	background-color: @battery;
+  background-color: @battery;
 }
 #custom-left_inv.2 {
-	color: @battery;
+  color: @battery;
 }
 
 /*----------------
@@ -50,10 +55,10 @@
 ----------------*/
 
 #custom-power {
-	border-radius: 16px;
-	padding: 0 19px 0 16px;
-	color: @accent;
+  border-radius: 16px;
+  padding: 0 19px 0 16px;
+  color: @accent;
 }
 #custom-power:hover {
-	background-color: @hover-bg;
+  background-color: @hover-bg;
 }

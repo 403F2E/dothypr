@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 if ! command -v fzf > /dev/null 2>&1; then
   notify-send -u critical "Error: fzf not found."

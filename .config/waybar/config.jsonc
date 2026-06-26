@@ -43,7 +43,7 @@
 		"custom/right_div#5"
 	],
 	"modules-right": [
-		"mpris",
+		"custom/cava",
 		"custom/left_div#6",
 		"group/pulseaudio",
 		"custom/left_div#7",

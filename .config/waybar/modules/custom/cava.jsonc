@@ -1,0 +1,16 @@
+{
+	"custom/cava": {
+    "exec": "~/.config/waybar/scripts/cava.sh",
+    "format": "{}",
+
+    "on-click": "playerctl previous",
+    "on-click-middle": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+
+    "on-scroll-up": "playerctl volume 0.05+",
+    "on-scroll-down": "playerctl volume 0.05-",
+
+    "tooltip": true,
+    "tooltip-format": "LMB: Play/Pause\nMMB: Previous\nRMB: Next"
+	}
+}

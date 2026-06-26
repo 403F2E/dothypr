@@ -1,4 +1,4 @@
-#/usr/bin/env zsh
+#/usr/bin/env bash
 
 rofi_theme="$HOME/.config/rofi/launchers/type-1/style-5.rasi"
 msg='‼️ **note** ‼️ search via default web browser'
