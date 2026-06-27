@@ -22,7 +22,7 @@
 		// "on-scroll-up":
 		// "on-scroll-down":
 		// "smooth-scrolling-threshold":
-		// "tooltip":
+		"tooltip": true,
 		"tooltip-format": "No command set"
 		// "escape":
 		// "menu":

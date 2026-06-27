@@ -3,6 +3,8 @@
     "exec": "~/.config/waybar/scripts/cava.sh",
     "format": "{}",
 
+    // "return-type": "json",
+
     "on-click": "playerctl previous",
     "on-click-middle": "playerctl play-pause",
     "on-click-right": "playerctl next",

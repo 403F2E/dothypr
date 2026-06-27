@@ -7,7 +7,7 @@ rofi_theme="$HOME/.config/rofi/launchers/type-7/style-7.rasi"
 switch_layout() {
   local lang=$1
 
-  case "$1" in
+  case "$lang" in
     gb) 
       fcitx-remote -c
 

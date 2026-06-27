@@ -17,7 +17,7 @@
 		"custom/left_div#1",
 		"hyprland/workspaces",
 		"custom/right_div#1",
-		"hyprland/window"
+		"custom/mode"
 	],
 	"modules-center": [
 		"hyprland/language",
@@ -74,7 +74,7 @@
 	// "no-center":
 	"spacing": 0,
 	// "name":
-	"mode": "dock",
+	// "mode": "dock",
 	// "start_hidden":
 	// "modifier-reset":
 	// "exclusive":

@@ -8,7 +8,7 @@
 		// "interval":
 		// "restart-interval":
 		// "signal":
-		"format": "󰮤",
+		"format": "󰮤"
 		// "format-icons":
 		// "rotate":
 		// "min-length":
@@ -22,7 +22,7 @@
 		// "on-scroll-up":
 		// "on-scroll-down":
 		// "smooth-scrolling-threshold":
-		"tooltip": false
+		// "tooltip": false
 		// "tooltip-format":
 		// "escape":
 		// "menu":

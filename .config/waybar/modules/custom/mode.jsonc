@@ -1,0 +1,18 @@
+{
+	"custom/mode": {
+    "exec": "cat ~/.config/hypr/state/mode.status",
+		"format": "{}",
+    "signal": 8,
+    "on-click": "~/.config/hypr/scripts/mode.sh; cat ~/.config/hypr/state/mode.status",
+    "tooltip": true,
+    "tooltip-format": "Lock In"
+    // "tooltip": "{}",
+		// "separate-outputs":
+		// "icon":
+		// "icon-size":
+		// "min-length":
+		// "max-length":
+		// "tooltip":
+		// "expand":
+	}
+}

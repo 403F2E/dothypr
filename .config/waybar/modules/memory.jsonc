@@ -21,7 +21,7 @@
 		// "on-scroll-up":
 		// "on-scroll-down":
 		// "smooth-scrolling-threshold":
-		// "tooltip":
+		"tooltip": true,
 		"tooltip-format": "Memory Used: {used:0.0f}/{total:0.0f} GiB"
 		// "menu":
 		// "menu-file":

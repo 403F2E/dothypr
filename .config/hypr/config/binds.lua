@@ -6,6 +6,11 @@ hl.bind(
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 
+-- //-- Mode Switching --//
+local modes = "~/.config/hypr/scripts/mode.sh"
+
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(modes))
+
 -- //-- RELOAD
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
 
