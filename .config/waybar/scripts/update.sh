@@ -5,84 +5,54 @@ FG_BLUE="\e[34m"
 FG_RESET="\e[39m"
 
 TIMEOUT=10
-HELPERS=( aura paru pikaur trizen yay )
 
 printf() {
 	command printf "$@" >&2
 }
 
-get_helper() {
-	local helper
-	for helper in "${HELPERS[@]}"; do
-		if command -v "$helper" > /dev/null; then
-			HELPER=$helper
-			break
-		fi
-	done
-}
-
 check_updates() {
 	local output status
 
-	output=$(timeout $TIMEOUT dnf check-update)
-	status=$?
+	output=$(dnf check-update)
+	UPDATES=$?
 
-	if ((status != 0 && status != 2)); then
+	if ((UPDATES != 0 && UPDATES != 100)); then
 		FAILED=true
+    notify-send "Error when checking updates"
 		return 1
 	fi
 
-	UPDATES=$(grep -c . <<< "$output")
-
-	if [[ -n $HELPER ]]; then
-		local aur_output aur_status
-
-		aur_output=$(timeout $TIMEOUT "$HELPER" -Quaq)
-		aur_status=$?
-
-		if ((${#aur_output} > 0 && aur_status != 0)); then
-			FAILED=true
-			return 1
-		fi
-
-		AUR_UPDATES=$(grep -c . <<< "$aur_output")
-	fi
+  if ((UPDATES == 0)); then
+    notify-send "No updates available"
+  else 
+    notify-send "Available updates"
+  fi
 }
 
 update_packages() {
 	printf "%bUpdating packages...%b\n" "$FG_BLUE" "$FG_RESET"
 
-	if [[ -n $HELPER ]]; then
-		"$HELPER" -Syu
-	else
-		sudo dnf update
-	fi
+  sudo dnf upgrade --refresh
 
 	notify-send "Update Complete" -i "package-install"
 
 	printf "\n%bUpdate complete!%b\n" "$FG_GREEN" "$FG_RESET"
+
 	read -rsn 1 -p "Press any key to exit..."
 }
 
 display_module() {
 	local icon tooltip
 
-	if $FAILED; then
+  if ((FAILED = true)); then
 		icon='󰒑'
 		tooltip="<b>Failed to fetch updates</b>\nRight-click to retry"
-	elif ((UPDATES + AUR_UPDATES == 0)); then
+  elif ((UPDATES == 0)); then
 		icon='󰸟'
 		tooltip="No updates available"
-	else
+  else
 		icon='󰄠'
-		tooltip="<b>Pacman</b>: $UPDATES"
-
-		if [[ -n $HELPER ]]; then
-			local padding
-			printf -v padding "%*s" $((6 - ${#HELPER})) ''
-
-			tooltip+="\n<b>${HELPER^}</b>: $padding$AUR_UPDATES"
-		fi
+		tooltip="<b>DNF</b>: $UPDATES"
 	fi
 
 	cat <<- EOF
@@ -93,15 +63,14 @@ display_module() {
 main() {
 	FAILED=false
 	UPDATES=0
-	AUR_UPDATES=0
 
 	get_helper
 
 	case $1 in
-		module)
-			check_updates
-			display_module
-			;;
+    check)
+      check_updates
+      display_module
+      ;;
 		*)
 			# Update the module on exit
 			trap "pkill -RTMIN+1 waybar" EXIT
@@ -110,6 +79,7 @@ main() {
 
 			check_updates
 			update_packages
+      display_module
 			;;
 	esac
 }

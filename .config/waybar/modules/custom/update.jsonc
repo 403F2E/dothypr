@@ -1,6 +1,6 @@
 {
 	"custom/update": {
-		"exec": "~/.config/waybar/scripts/update.sh module",
+		"exec": "~/.config/waybar/scripts/update.sh check",
 		// "exec-if":
 		// "exec-on-event":
 		// "hide-empty-text":
@@ -22,8 +22,8 @@
 		// "on-scroll-up":
 		// "on-scroll-down":
 		// "smooth-scrolling-threshold":
-		// "tooltip":
-		// "tooltip-format":
+		// "tooltip": true,
+		// "tooltip-format": "{}"
 		// "escape":
 		// "menu":
 		// "menu-file":
