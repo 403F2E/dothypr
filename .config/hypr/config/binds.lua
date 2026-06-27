@@ -17,6 +17,7 @@ hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("wlogout"))
 
 -- //-- Apps
 local terminal = "kitty"
+local obsidian = "flatpak run md.obsidian.Obsidian"
 local fileManager = "dolphin"
 local term_filemanager = terminal .. " -e ranger"
 local fuzzing = terminal .. " -e ~/.config/hypr/scripts/fuzzing.sh"
@@ -27,6 +28,8 @@ local calculator = "~/.config/hypr/scripts/calc.sh"
 
 -- open kitty
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
+-- open obsidian
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(obsidian))
 -- open dolphin
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 -- open fzf
