@@ -1,10 +1,8 @@
 {
   "hyprland/language": {
     // "format":
-    "format-us": "󰌌 US",
-    "format-gb": "󰌌 GB",
-    "format-jp": "󰌌 JP",
-    "format-ar": "󰌌 AR"
+    "format-jp": "Japanese (JP)",
+    "format-ara": "Arabic (ARA)"
     // "keyboard-name":
     // "min-length":
     // "max-length":

@@ -45,9 +45,9 @@ local emoji = "~/.config/hypr/scripts/emoji.sh"
 hl.bind(mainMod .. " + code:60", hl.dsp.exec_cmd(emoji))
 
 -- keybinds to switch betwen layouts
--- hl.bind("SUPER+SPACE", function()
--- 	hl.dsp.exec_cmd("hyprctl switchxkblayout all next")
--- end)
+local layout = "~/.config/hypr/scripts/layout.sh"
+
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(layout))
 
 -- //-- Windows
 -- Keybinds to manage windows
