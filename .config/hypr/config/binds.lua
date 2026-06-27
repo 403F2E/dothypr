@@ -23,6 +23,7 @@ local fuzzing = terminal .. " -e ~/.config/hypr/scripts/fuzzing.sh"
 local browser = "brave-browser"
 local search = "~/.config/hypr/scripts/browse.sh"
 local launcher = "~/.config/rofi/launchers/type-6/launcher.sh"
+local calculator = "~/.config/hypr/scripts/calc.sh"
 
 -- open kitty
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
@@ -38,6 +39,8 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(launcher))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 -- search through rofi
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(search))
+-- open rofi calculator
+hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(calculator))
 
 -- //-- Emojis
 local emoji = "~/.config/hypr/scripts/emoji.sh"
