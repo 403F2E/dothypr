@@ -30,15 +30,7 @@ hl.window_rule({
 	},
 })
 
-hl.window_rule({
-	name = "Dolphin",
-	match = {
-		class = "^(org.kde.dolphin)$",
-		title = "^(Properties)$",
-		float = true,
-	},
-})
-
+-- File manager
 hl.window_rule({
 	name = "Open File",
 	match = {
@@ -48,20 +40,99 @@ hl.window_rule({
 	},
 })
 
+-- Browsers
 hl.window_rule({
-	name = "Float_Zen",
+	name = "browse",
 	match = {
 		class = "^(firefox)$",
 		title = "^(Picture-in-Picture)$",
 		float = true,
 	},
+	workspace = 2,
 })
-
 hl.window_rule({
-	name = "Float_Zen",
+	name = "browse",
 	match = {
 		class = "^(firefox)$",
 		title = "^(Picture-in-Picture)$",
 		pin = true,
 	},
+	workspace = 2,
+})
+hl.window_rule({
+	name = "browse",
+	match = {
+		class = "brave-browser",
+	},
+	workspace = 2,
+})
+
+-- Terminal
+hl.window_rule({
+	name = "kitty-workspace",
+	match = {
+		class = "kitty",
+	},
+	workspace = 1,
+})
+
+-- Notes
+hl.window_rule({
+	name = "obsidian-workspace",
+	match = {
+		class = "obsidian",
+	},
+	workspace = 1,
+})
+
+-- Social media
+hl.window_rule({
+	name = "socials",
+	match = {
+		class = "discord",
+	},
+	workspace = 3,
+})
+hl.window_rule({
+	name = "socials",
+	match = {
+		class = "com.rtosta.zapzap",
+	},
+	workspace = 3,
+})
+
+-- Music
+hl.window_rule({
+	name = "spotify-workspace",
+	match = {
+		class = "spotify",
+	},
+	workspace = 5,
+})
+
+-- Virtual-Manager
+hl.window_rule({
+	name = "virt-manager-workspace",
+	match = {
+		class = "virt-manager",
+	},
+	workspace = 5,
+})
+
+-- Streaming
+hl.window_rule({
+	name = "obs-workspace",
+	match = {
+		class = "com.obsproject.Studio",
+	},
+	workspace = 4,
+})
+
+-- Gaming
+hl.window_rule({
+	name = "steam-workspace",
+	match = {
+		class = "steam",
+	},
+	workspace = 8,
 })

@@ -10,6 +10,6 @@ hl.env("CLUTTER_BACKEND", "wayland")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
 
-hl.env("QT_IM_MODULE", "wayland,ibus,fcitx")
+hl.env("QT_IM_MODULE", "wayland,fcitx")
 hl.env("XMODIFIERS", "@im=fcitx")
 hl.env("INPUT_METHOD", "fcitx")
