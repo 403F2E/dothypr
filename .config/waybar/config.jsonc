@@ -17,7 +17,8 @@
 		"custom/left_div#1",
 		"hyprland/workspaces",
 		"custom/right_div#1",
-		"custom/mode"
+		"custom/mode",
+		"custom/right_div#2"
 	],
 	"modules-center": [
 		"hyprland/language",

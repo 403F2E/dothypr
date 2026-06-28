@@ -3,18 +3,35 @@
 # Variables
 rofi_theme="$HOME/.config/rofi/launchers/type-7/style-7.rasi"
 
-dev="💻 Programming"
-cs="🧑‍💻 CyberSecurity"
-osint="🕵️ OSINT"
-study="📔 Study"
-gaming="🎮 Gaming"
+dev="Programming"
+cs="CyberSecurity"
+osint="OSINT"
+study="Study"
+gaming="Gaming"
+
+# chill_mode() {
+#
+# }
+#
+# dev_mode() {
+#
+# }
+#
+# cs_mode(){}
+#
+# osint_mode(){}
+#
+# study_mode(){}
+#
+# gaming_mode(){}
 
 # Switching language function
 switch_mode() {
-  local mode="$1 $2"
+  local mode=$2
 
   case "$mode" in
     "$dev")
+
       notify-send "program in : $mode"
       echo $mode > ~/.config/hypr/state/mode.status
       pkill -RTMIN+8 waybar

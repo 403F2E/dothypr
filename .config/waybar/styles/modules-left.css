@@ -4,21 +4,29 @@
 
 #custom-left_div.1,
 #custom-right_div.1 {
-	color: @workspaces;
+  color: @workspaces;
 }
+
+#custom-right_div.1 {
+  background-color: @accent;
+}
+
 #workspaces {
-	padding: 0 1px;
-	background-color: @workspaces;
+  padding: 0 1px;
+  background-color: @workspaces;
 }
 #workspaces button.active label,
 #workspaces button.focused label {
-	color: @accent;
+  color: @accent;
 }
 
 /*------------------
-    Window title
+    mode title
 ------------------*/
 
-#window {
-	margin: 0 12px;
+#custom-mode {
+  background-color: @accent;
+  color: @main-bg;
+  font-size: 17.5;
+  padding: 2px 5px 2px 9px;
 }
