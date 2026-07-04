@@ -55,7 +55,7 @@ for _, lsp in pairs(servers) do
   lspconfig(lsp, {
     on_attach = on_attach,
     on_init = nvlsp.on_init,
-    capabilities = capabilities,
+    capabilities = nvlsp.capabilities,
     filetypes = { "html", "htmx", "xml" },
   })
 end
@@ -65,7 +65,7 @@ end
 lspconfig("lua_ls", {
   on_attach = on_attach,
   on_init = nvlsp.on_init,
-  capabilities = capabilities,
+  capabilities = nvlsp.capabilities,
   filetypes = { "lua" },
 })
 
@@ -73,7 +73,7 @@ lspconfig("lua_ls", {
 lspconfig("pyright", {
   on_attach = on_attach,
   on_init = nvlsp.on_init,
-  capabilities = capabilities,
+  capabilities = nvlsp.capabilities,
   filetype = { "python" },
 })
 
@@ -96,7 +96,7 @@ lspconfig("clangd", {
 -- TypeScript Lsp configuration
 lspconfig("tsserver", {
   on_attach = on_attach,
-  capabilities = capabilities,
+  capabilities = nvlsp.capabilities,
   -- root_dir = require("lspconfig.util").root_pattern("next.config.js", "next.config.ts", "package.json", ".git"),
   filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
   cmd = { "typescript-language-server", "--stdio" },
@@ -111,7 +111,7 @@ lspconfig("tsserver", {
 -- ESLint linter configuration
 lspconfig("eslint", {
   on_attach = on_attach,
-  capabilities = capabilities,
+  capabilities = nvlsp.capabilities,
   root_dir = require("lspconfig.util").root_pattern("next.config.js", "next.config.ts", "package.json", ".git"),
   filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
   settings = {
@@ -123,7 +123,7 @@ lspconfig("eslint", {
 
 lspconfig("tailwindcss", {
   on_attach = on_attach,
-  capabilities = capabilities,
+  capabilities = nvlsp.capabilities,
   root_dir = require("lspconfig.util").root_pattern("next.config.js", "next.config.ts", "package.json", ".git"),
   filetypes = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact" },
   settings = {
@@ -137,7 +137,7 @@ lspconfig("tailwindcss", {
 --- Java Lsp Configuration
 lspconfig("jdtls", {
   on_attach = on_attach,
-  capabilities = capabilities,
+  capabilities = nvlsp.capabilities,
   lazy = false,
   root_dir = require("lspconfig.util").root_pattern("pom.xml", "gradle.build", ".git"),
   cmd = {
@@ -195,7 +195,7 @@ lspconfig("jdtls", {
 lspconfig("intelephense", {
   on_attach = on_attach,
   on_init = nvlsp.on_init,
-  capabilities = capabilities,
+  capabilities = nvlsp.capabilities,
   filetypes = { "php" },
   settings = {
     intelephense = {
@@ -213,7 +213,7 @@ lspconfig("intelephense", {
 lspconfig("gopls", {
   on_attach = on_attach,
   on_init = nvlsp.on_init,
-  capabilities = capabilities,
+  capabilities = nvlsp.capabilities,
   filetypes = { "go" },
   settings = {
     gopls = {

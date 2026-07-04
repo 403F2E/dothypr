@@ -42,7 +42,7 @@ hl.window_rule({
 
 -- Browsers
 hl.window_rule({
-	name = "browse",
+	name = "firefox-browser",
 	match = {
 		class = "^(firefox)$",
 		title = "^(Picture-in-Picture)$",
@@ -51,7 +51,7 @@ hl.window_rule({
 	workspace = 2,
 })
 hl.window_rule({
-	name = "browse",
+	name = "zen-browser",
 	match = {
 		class = "^(firefox)$",
 		title = "^(Picture-in-Picture)$",
@@ -60,7 +60,7 @@ hl.window_rule({
 	workspace = 2,
 })
 hl.window_rule({
-	name = "browse",
+	name = "brave-browser",
 	match = {
 		class = "brave-browser",
 	},
@@ -87,14 +87,14 @@ hl.window_rule({
 
 -- Social media
 hl.window_rule({
-	name = "socials",
+	name = "discord-workspace",
 	match = {
 		class = "discord",
 	},
 	workspace = 3,
 })
 hl.window_rule({
-	name = "socials",
+	name = "zapzap-workspace",
 	match = {
 		class = "com.rtosta.zapzap",
 	},
