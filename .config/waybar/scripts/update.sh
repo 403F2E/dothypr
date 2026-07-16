@@ -64,8 +64,6 @@ main() {
 	FAILED=false
 	UPDATES=0
 
-	get_helper
-
 	case $1 in
     check)
       check_updates
