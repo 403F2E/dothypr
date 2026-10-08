@@ -80,8 +80,9 @@ hl.window_rule({
 hl.window_rule({
 	name = "obsidian-workspace",
 	match = {
-		class = "obsidian",
+		class = "Obsidian",
 	},
+
 	workspace = 1,
 })
 

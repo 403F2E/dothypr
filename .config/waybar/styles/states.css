@@ -4,6 +4,7 @@
 #network:hover,
 #bluetooth:hover,
 #custom-update:hover,
+#mpris:hover,
 #pulseaudio:hover,
 #wireplumber:hover {
   color: @hover-fg;
@@ -11,6 +12,7 @@
 
 /* Inactive states */
 #idle_inhibitor.deactivated,
+#mpris.paused,
 #pulseaudio.output.muted,
 #pulseaudio.input.source-muted,
 #wireplumber.muted {
