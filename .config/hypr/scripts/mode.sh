@@ -4,7 +4,7 @@
 rofi_theme="$HOME/.config/rofi/launchers/type-7/style-7.rasi"
 
 # list of apps
-list_apps=(kitty brave-browser steam virt-manager)
+list_apps=(kitty zen steam virt-manager)
 flatpak_apps=("md.obsidian.Obsidian" "com.rtosta.zapzap" "com.discordapp.Discord" "com.obsproject.Studio" "com.spotify.Client")
 
 kill_processes() {

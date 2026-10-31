@@ -68,6 +68,8 @@ require("flutter-tools").setup {}
 local tele = require "telescope"
 tele.load_extension "flutter"
 
+-- local icon = require("")
+
 vim.schedule(function()
   require "mappings"
 end)

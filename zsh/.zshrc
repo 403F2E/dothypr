@@ -3,7 +3,10 @@
 
 export SHELL="/bin/zsh"
 
+export EDITOR="nvim"
+
 # export ZSH="$HOME/.oh-my-zsh"
+#
 export PATH="$HOME/.local/bin/:$HOME/.cargo/bin/:$PATH"
 
 # export solana

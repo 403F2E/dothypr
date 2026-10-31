@@ -13,6 +13,61 @@ return {
     end,
   },
 
+  -- Lua rocks and image to render media files
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1001,
+    lazy = false,
+    opts = {
+      rocks = { "magick" },
+    },
+  },
+
+  {
+    "3rd/image.nvim",
+    dependencies = { "vhyrro/luarocks.nvim" },
+    lazy = false,
+    opts = {
+      backend = "kitty", -- or "ueberzugpp"
+      max_height_window_percentage = 50,
+      hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.svg" },
+    },
+  },
+
+  -- glimpse to preview media files in the fuzzer finder
+  {
+    "adriancmiranda/glimpse.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    lazy = false,
+    opts = {
+      strategy = "auto",
+
+      integrations = {
+        telescope = {
+          enable = true,
+
+          -- Enable image previews in these pickers
+          pickers = {
+            "find_files",
+            "git_files",
+          },
+
+          image = true,
+          pdf = true,
+          video = true,
+          archive = true,
+          sqlite = true,
+          font = true,
+          cert = true,
+          key = true,
+          binary = true,
+        },
+      },
+    },
+  },
+
   -- DAP
   {
     "mfussenegger/nvim-dap",

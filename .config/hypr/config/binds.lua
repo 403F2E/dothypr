@@ -2,8 +2,8 @@ local mainMod = "SUPER"
 
 -- //-- Hyprland shutdown
 hl.bind(
-	mainMod .. " + M",
-	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+  mainMod .. " + M",
+  hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 
 -- //-- Mode Switching --//
@@ -15,7 +15,7 @@ hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(modes))
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
 
 -- //-- LOCKSCREEN
-hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("hyprctl switchxkblayout current 0 && hyprlock"))
 
 -- //-- LOGOUT
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("wlogout"))
@@ -26,7 +26,7 @@ local obsidian = "flatpak run md.obsidian.Obsidian"
 local fileManager = "dolphin"
 local term_filemanager = terminal .. " -e ranger"
 local fuzzing = terminal .. " -e ~/.config/hypr/scripts/fuzzing.sh"
-local browser = "brave-browser"
+local browser = "/opt/zen/zen"
 local search = "~/.config/hypr/scripts/browse.sh"
 local launcher = "~/.config/rofi/launchers/type-6/launcher.sh"
 local calculator = "~/.config/hypr/scripts/calc.sh"
@@ -43,7 +43,7 @@ hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(fuzzing))
 hl.bind(mainMod .. " + SHIFT + Y", hl.dsp.exec_cmd(term_filemanager))
 -- open rofi -drun
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(launcher))
--- open brave (zen in the future)
+-- open zen
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 -- search through rofi
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(search))
@@ -81,8 +81,8 @@ hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
 hl.bind("ALT + Tab", function()
-	hl.dispatch(hl.dsp.window.cycle_next({ prev = true })) -- Change focus to another window
-	hl.dispatch(hl.dsp.window.fullscreen({ mode = "maximized" })) -- Bring it to the top
+  hl.dispatch(hl.dsp.window.cycle_next({ prev = true }))        -- Change focus to another window
+  hl.dispatch(hl.dsp.window.fullscreen({ mode = "maximized" })) -- Bring it to the top
 end)
 
 -- Move windows in a certain direction
@@ -94,9 +94,9 @@ hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 -- //-- Workspaces
 -- Keybinds to move between workspaces and move windows between them
 for i = 1, 10 do
-	local key = i % 10 -- 10 maps to key 0
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+  local key = i % 10 -- 10 maps to key 0
+  hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+  hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- //-- Mouse
@@ -112,8 +112,8 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 -- Screenshots
 hl.bind("print", hl.dsp.exec_cmd("grim ~/Pictures/Screenshots/screenshot_$(date +%F_%T).png"))
 hl.bind(
-	mainMod .. " + SHIFT + S",
-	hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f - -o ~/Pictures/Screenshots/screenshot_$(date +%F_%T).png')
+  mainMod .. " + SHIFT + S",
+  hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f - -o ~/Pictures/Screenshots/screenshot_$(date +%F_%T).png')
 )
 
 -- CLipboard
@@ -123,16 +123,16 @@ hl.bind(mainMod .. "+ V", hl.dsp.exec_cmd(clippy))
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind(
-	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd("pamixer -i 5 --allow-boost --set-limit 300"),
-	{ locked = true, repeating = true }
+  "XF86AudioRaiseVolume",
+  hl.dsp.exec_cmd("pamixer -i 5 --allow-boost --set-limit 300"),
+  { locked = true, repeating = true }
 )
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pamixer -d 5"), { locked = true, repeating = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pamixer -t"), { locked = true, repeating = true })
 hl.bind(
-	"XF86AudioMicMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-	{ locked = true, repeating = true }
+  "XF86AudioMicMute",
+  hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+  { locked = true, repeating = true }
 )
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })

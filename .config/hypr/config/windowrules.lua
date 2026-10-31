@@ -45,20 +45,18 @@ hl.window_rule({
 	name = "firefox-browser",
 	match = {
 		class = "^(firefox)$",
-		title = "^(Picture-in-Picture)$",
-		float = true,
 	},
 	workspace = 2,
 })
+
 hl.window_rule({
 	name = "zen-browser",
 	match = {
-		class = "^(firefox)$",
-		title = "^(Picture-in-Picture)$",
-		pin = true,
+		class = "zen",
 	},
 	workspace = 2,
 })
+
 hl.window_rule({
 	name = "brave-browser",
 	match = {
@@ -73,6 +71,7 @@ hl.window_rule({
 	match = {
 		class = "kitty",
 	},
+  fullscreen_state = 0,
 	workspace = 1,
 })
 
