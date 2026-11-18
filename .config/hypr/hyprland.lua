@@ -1,4 +1,5 @@
 require("config.monitors")
+require("config.workspacerules")
 require("config.general")
 require("config.decoration")
 require("config.animations")
